@@ -1,0 +1,139 @@
+
+
+    <div *ngIf="type==admin">
+
+        <!--#region Adim dashboard  -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid justify-content-start">
+                <p class="navbar-brand me-5 mb-0"> <b>MyUniApp</b> </p>
+        
+                <div class="row flex-wrap w-100">
+                    <div class="col d-flex flex-wrap">
+                        <div class="mx-2">
+                            <a class="btn btn-secondary rounded mx-auto" routerLink="/krijo-kurse"
+                                routerLinkActive="active">Krijo
+                                Kurse</a>
+                        </div>
+                        <div class="mx-2">
+                            <a class="btn btn-secondary rounded mx-auto" routerLink="/kurset-emija"
+                                routerLinkActive="active">Kurset
+                                E Mija</a>
+                        </div>
+                        <div class="mx-2">
+                            <a class="btn btn-secondary rounded mx-auto" routerLink="/zgjidh-kurset"
+                                routerLinkActive="active">Zgjidh Kurset</a>
+                        </div>
+                    </div>
+                    <div class="col d-flex"> 
+                        <div ngbDropdown class="ms-auto">
+                            <button class="btn btn-secondary mx-5" id="navbarDropdown2"  ngbDropdownToggle> {{name}} </button>
+                            <div ngbDropdownMenu aria-labelledby="navbarDropdown2" class="dropdown-menu dropdown-menu-right">
+                                <button ngbDropdownItem routerLink="/login" (click)="clearCookie()" routerLinkActive="active">Logout</button>
+                            </div>  
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </nav>
+        
+        <div class="footer bg-light">
+            <div class="row">
+                <div>
+                    Per me shume informacion, kontaktoni <a href="mailto: patrikdurres@gmail.com"
+                        class="link-secondary col">supportin</a>
+                </div>
+            </div>
+        </div>
+        
+          <!--#endregion -->
+    </div>
+
+    <div *ngIf="type==student">
+        <!--#region student dashboard-->
+        
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid justify-content-start">
+                <p class="navbar-brand me-5 mb-0"> <b>MyUniApp</b> </p>
+        
+                <div class="row flex-wrap w-100">
+                    <div class="col d-flex flex-wrap">
+                        <div class="mx-2">
+                            <a class="btn btn-secondary rounded mx-auto" routerLink="/kurset-emija"
+                                routerLinkActive="active">Kurset
+                                E Mija</a>
+                        </div>
+                        <div class="mx-2">
+                            <a class="btn btn-secondary rounded mx-auto" routerLink="/zgjidh-kurset"
+                                routerLinkActive="active">Zgjidh Kurset</a>
+                        </div>
+                    </div>
+                    <div class="col ms-auto d-flex">
+                        <div class="col d-flex"> 
+                            <div ngbDropdown class="d-inline-block ms-auto">
+                                <button class="btn btn-secondary mx-5" id="dropdownBasic1" ngbDropdownToggle> {{name}} {{lastname}} </button>
+                                <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="mx-5" >
+                                    <button ngbDropdownItem>User : {{type}}</button>
+                                    <div class="dropdown-divider"></div>
+                                    <button ngbDropdownItem routerLink="/login" (click)="clearCookie()" routerLinkActive="active">Logout</button>
+                                </div>  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="footer bg-light">
+            <div class="row">
+                <div>
+                    Per me shume informacion, kontaktoni <a href="mailto: patrikdurres@gmail.com"
+                        class="link-secondary col">supportin</a>
+                </div>
+            </div>
+        </div>
+        
+          <!--#endregion-->
+
+    </div>
+
+    <div *ngIf="type==teacher">
+
+        <!--#region teacher dashboard-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid justify-content-start">
+                <p class="navbar-brand me-5 mb-0"> <b>MyUniApp</b> </p>
+        
+                <div class="row flex-wrap w-100">
+                    <div class="col d-flex flex-wrap">
+                        <div class="mx-2">
+                            <a class="btn btn-secondary rounded mx-auto" routerLink="/krijo-kurse"
+                                routerLinkActive="active">Krijo
+                                Kurse</a>
+                        </div>
+                    </div>
+                    <div class="col d-flex"> 
+                        <div ngbDropdown class="d-inline-block ms-auto">
+                            <button class="btn btn-secondary mx-5" id="dropdownBasic1" ngbDropdownToggle> {{name}} {{lastname}} </button>
+                            <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="mx-5">
+                                <button ngbDropdownItem>User : {{type}}</button>
+                                <div class="dropdown-divider"></div>
+                                <button ngbDropdownItem routerLink="/login" (click)="clearCookie()" routerLinkActive="active">Logout</button>
+                            </div>  
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="footer bg-light">
+            <div class="row">
+                <div>
+                    Per me shume informacion, kontaktoni <a href="mailto: patrikdurres@gmail.com"
+                        class="link-secondary col">supportin</a>
+                </div>
+            </div>
+        </div>
+        
+        <!--endregion-->
+    </div>

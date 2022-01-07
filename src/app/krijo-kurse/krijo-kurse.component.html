@@ -1,0 +1,245 @@
+<app-home></app-home>
+
+<div *ngIf="tipi==admin">
+
+  <!--#region admin-->
+
+  <div class="m-2">
+
+    <table class="table table-hover table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Kursi</th>
+          <th>Kreditet</th>
+          <th>Lektori</th>
+          <td><button class="btn col-5 btn-success" (click)="open(mymodal)">Shto Kurse</button></td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let thedata of adminData">
+          <td>{{thedata.code}}</td>
+          <td>{{thedata.name}}</td>
+          <td>{{thedata.credits}}</td>
+          <td>{{teachers[thedata.id]}}</td>
+          <td>
+            <div class="col-5  d-flex flex-nowrap">
+              <div class="px-1 col mx-0 w-auto">
+                <button class="btn btn-primary w-100 " (click)="editCourse(thedata)"
+                  (click)="open(mymodal2)">Modifiko</button>
+              </div>
+              <div class="px-1 col mx-0 w-auto">
+                <button (click)="deleteCourse(thedata)" class="btn btn-danger w-100">Fshi</button>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+  <!--#endregion-->
+
+  <!--#region modal-->
+
+  <ng-template #mymodal let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Te Dhenat e Kursit</h4>
+    </div>
+    <div class="modal-body">
+      <form #userPost="ngForm" (ngSubmit)="onSubmitAdmin(userPost.value)">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Kodi Unik</label>
+          <input type="text" name="code" ngModel class="form-control">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Emri i Kursit</label>
+          <input type="text" name="name" ngModel class="form-control">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Kreditet</label>
+          <input type="number" name="credits" ngModel class="form-control">
+        </div>
+        <div class="mb-3 ">
+          <label for="exampleInputPassword1" class="form-label">Teacher ID</label>
+          <input type="text" name="teacherid" ngModel class="form-control">
+        </div>
+
+        <div class="mb-3 form-check">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
+    </div>
+  </ng-template>
+
+
+  <ng-template #mymodal2 let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Edit</h4>
+    </div>
+    <div class="modal-body">
+      <form #userPost="ngForm" [formGroup]="formValue" (ngSubmit)="editCourse(userPost.value)">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Kodi Unik</label>
+          <input type="text" name="code" formControlName="code" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Emri i Kursit</label>
+          <input type="text" name="name" formControlName="name" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Kreditet</label>
+          <input type="number" name="credits" formControlName="credits" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Id e Lektorit</label>
+          <input type="number" name="teacherid" formControlName="teacherid" class="form-control">
+        </div>
+
+       
+
+        <input type="number" hidden name="id" formControlName="id" class="form-control">
+
+
+      </form>
+    </div>
+    <div class="row flex-nowrap m-0 p-2 w-100">
+      <div class="w-auto">
+        <button type="submit" class="btn btn-primary" (click)="updatecourseAdmin()">Update</button>
+      </div>
+      <div class="w-auto ms-auto">
+        <button type="button" class="btn btn-primary" (click)="modal.close('Save click')">Cancel</button>
+
+      </div>
+    </div>
+  </ng-template>
+
+  <!--#endregion-->
+
+</div>
+
+<div *ngIf="placehold==4 || placehold==5">
+
+  <div class="m-2">
+
+    <table class="table table-hover table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Kursi</th>
+          <th>Kreditet</th>
+          <th>Lektori</th>
+          <td><button class="btn col-5 btn-success" (click)="open(mymodal)">Shto Kurse</button></td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let thedata of data">
+          <td>{{thedata.code}}</td>
+          <td>{{thedata.name}}</td>
+          <td>{{thedata.credits}}</td>
+          <td>{{teachers[thedata.id]}}</td>
+
+          <td>
+            <div class="col-5  d-flex flex-nowrap">
+              <div class="px-1 col mx-0 w-auto">
+                <button class="btn btn-primary w-100 " (click)="editCourse(thedata)"
+                  (click)="open(mymodal2)">Modifiko</button>
+              </div>
+              <div class="px-1 col mx-0 w-auto">
+                <button (click)="deleteCourse(thedata)" class="btn btn-danger w-100">Fshi</button>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <ng-template #mymodal let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Te Dhenat e Kursit</h4>
+    </div>
+    <div class="modal-body">
+      <form #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Kodi Unik</label>
+          <input type="text" name="code" ngModel class="form-control">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Emri i Kursit</label>
+          <input type="text" name="name" ngModel class="form-control">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Kreditet</label>
+          <input type="number" name="credits" ngModel class="form-control">
+        </div>
+
+        <div class="mb-3 d-none">
+          <label for="exampleInputPassword1" class="form-label">Id e Kursit</label>
+          <input type="number" name="id" ngModel class="form-control">
+        </div>
+
+        <div class="mb-3 d-none">
+          <label for="exampleInputPassword1" class="form-label">Teacher ID</label>
+          <input type="number" name="teacherid" placeholder={{placehold}} value={{placehold}} ngModel class="form-control">
+        </div>
+
+        <div class="mb-3 form-check">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
+    </div>
+  </ng-template>
+
+
+
+  <ng-template #mymodal2 let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Edit</h4>
+    </div>
+    <div class="modal-body">
+      <form #userPost="ngForm" [formGroup]="formValue" (ngSubmit)="editCourse(userPost.value)">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Kodi Unik</label>
+          <input type="text" name="code" formControlName="code" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Emri i Kursit</label>
+          <input type="text" name="name" formControlName="name" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Kreditet</label>
+          <input type="number" name="credits" formControlName="credits" class="form-control">
+        </div>
+
+        <input type="text" hidden name="teacherid" formControlName="teacherid" class="form-control">
+
+        <input type="number" hidden name="id" formControlName="id" class="form-control">
+
+
+      </form>
+    </div>
+    <div class="row flex-nowrap m-0 p-2 w-100">
+      <div class="w-auto">
+        <button type="submit" class="btn btn-primary" (click)="updatecourse()">Update</button>
+      </div>
+      <div class="w-auto ms-auto">
+        <button type="button" class="btn btn-primary" (click)="modal.close('Save click')">Cancel</button>
+
+      </div>
+    </div>
+  </ng-template>
+
+</div>
+
+

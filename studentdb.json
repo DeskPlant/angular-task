@@ -1,0 +1,121 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "type": "student",
+      "name": "Patrik",
+      "lastname": "Zotaj",
+      "password": "1",
+      "email": "patrikdurres@gmail.com"
+    },
+    {
+      "id": 2,
+      "type": "student",
+      "name": "Joni",
+      "lastname": "Zotaj",
+      "email": "joni.email@gmail.com",
+      "password": "2"
+    },
+    {
+      "id": 3,
+      "type": "student",
+      "name": "Name",
+      "lastname": "Lastname",
+      "email": "patrik.zotj@gmail.com",
+      "password": "dfbi7233"
+    },
+    {
+      "id": 4,
+      "type": "teacher",
+      "name": "Steve",
+      "lastname": "Jobs",
+      "email": "teacherEmail@gmail.com",
+      "password": "1"
+    },
+    {
+      "id": 5,
+      "type": "teacher",
+      "name": "Indian",
+      "lastname": "Dude",
+      "email": "indian@gmail.com",
+      "password": "1"
+    },
+    {
+      "id": 6,
+      "type": "admin",
+      "name": "admin",
+      "lastname": "admin",
+      "email": "admin",
+      "password": "1"
+    }
+  ],
+  "courses": [
+    {
+      "id": 1,
+      "code": "math02",
+      "name": "Matematika",
+      "credits": 5,
+      "teacherid": 5
+    },
+    {
+      "id": 2,
+      "code": "english020",
+      "name": "Anglisht",
+      "credits": 4,
+      "teacherid": 5
+    },
+    {
+      "code": "bio10112",
+      "name": "Biologji",
+      "credits": 4,
+      "id": 3,
+      "teacherid": 4
+    },
+    {
+      "id": 4,
+      "code": "code202",
+      "name": "Programim c++",
+      "credits": 5,
+      "teacherid": 4
+    },
+    {
+      "id": 6,
+      "code": "wrt20",
+      "name": "Shkrimi Akademik",
+      "credits": 6,
+      "teacherid": "4"
+    }
+  ],
+  "enrollment": [
+    {
+      "id": 6,
+      "studentId": 3,
+      "courseId": 1
+    },
+    {
+      "studentId": 1,
+      "courseId": 4,
+      "id": 7
+    },
+    {
+      "studentId": 1,
+      "courseId": 3,
+      "id": 8
+    },
+    {
+      "studentId": 1,
+      "courseId": 6,
+      "id": 9
+    },
+    {
+      "studentId": 3,
+      "courseId": 2,
+      "id": 10
+    },
+    {
+      "studentId": 1,
+      "courseId": 1,
+      "id": 11
+    }
+  ]
+}

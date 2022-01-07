@@ -1,0 +1,71 @@
+
+
+<app-home></app-home>
+
+<div *ngIf="type==student">
+
+  <div class="m-2">
+
+    <table class="table table-hover table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Kursi</th>
+          <th>Kreditet</th>
+          <th>Lektori</th>
+          <th>Numri i studenteve</th>
+          <th>Zgjidh Kurset</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let courseinfo of result">
+          <td>{{courseinfo.code}}</td>
+          <td>{{courseinfo.name}}</td>
+          <td>{{courseinfo.credits}}</td>
+          <td>{{teachers[courseinfo.id].name}}</td>
+          <td>{{list[courseinfo.id]}}</td>
+          <td>
+            <button type="button" (click)="enrollStudent(courseinfo.id)" class="btn btn-primary">Enroll</button>
+          </td>
+
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+  <div *ngIf="type==admin">
+
+    <div class="m-2">
+  
+      <table class="table table-hover table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Kursi</th>
+            <th>Kreditet</th>
+            <th>Lektori</th>
+            <th>Numri i studenteve</th>
+            <th>Zgjidh Kurset</th>
+  
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let courseinfo of data">
+            <td>{{courseinfo.code}}</td>
+            <td>{{courseinfo.name}}</td>
+            <td>{{courseinfo.credits}}</td>
+            <td>{{teachers[courseinfo.id].name}}</td>
+            <td>{{list[courseinfo.id]}}</td>
+            <td>
+              <button type="button" (click)="enrollStudent(courseinfo.id)" class="btn btn-primary">Enroll</button>
+            </td>
+  
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+
