@@ -9,12 +9,14 @@ pipeline {
 
                 echo "building..."
 
+
             }
         }
         stage('test'){
             steps {
 
                 echo "testing..."
+                sh 'ng serve'
 
             }
         }
