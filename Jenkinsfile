@@ -8,7 +8,7 @@ pipeline {
             steps {
 
                 echo "building..."
-                sh 'npm install'
+                
 
             }
         }
@@ -16,7 +16,7 @@ pipeline {
             steps {
 
                 echo "testing..."
-                sh 'ng serve'
+                
 
             }
         }
