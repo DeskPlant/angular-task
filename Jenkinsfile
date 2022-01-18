@@ -6,15 +6,22 @@ pipeline {
 
         stage('build'){
             steps {
-
-                sh 'docker build -t test2 .'
+                echo "creating docker image"
+                sh 'docker build -t test .'
                 
             }
         }
-        stage('test'){
+      stage('login'){
             steps {
-
-                echo "testing..."
+                echo "maybe ill need a login"       
+            }
+        }
+        stage('push'){
+          steps {    
+            
+                sh 'docker tag test patrikptr/test:1'
+                sh 'docker push patrikptr/test:1'
+                echo "pushing to docker hub..."
                 
             }
         }
