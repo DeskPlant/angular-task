@@ -1,14 +1,25 @@
 pipeline {
 
+  environment {
+        registry = "patrikptr/test80"
+        registryCredential = 'testpatrik'
+        dockerImage = ''
+}
+  
+  
     agent any   
-    def app
+    
 
     stages {
 
         stage('build'){
             steps {
                 echo "creating docker image"
-                app = sh 'docker build -t test .'
+                script {
+                  
+                 dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                  
+                       }
                 
             }
         }
@@ -16,8 +27,6 @@ pipeline {
             steps {
                 echo "login to patrikptr"
               
-                docker.withRegistry('https://registry.hub.docker.com', 'testpatrik') {                      
-                app.push("latest")
             }
         }
         stage('push'){
