@@ -23,19 +23,16 @@ pipeline {
                 
             }
         }
-      stage('login'){
+      stage('login and push'){
             steps {
                 echo "login to patrikptr"
+              script {
+                 docker.withRegistry( '', registryCredential ) {
+                   dockerImage.push() }
+                            }
               
             }
         }
-        stage('push'){
-          steps {    
-            
-                
-                echo "pushing to docker hub..."
-                
-            }
-        }
+        
     }
 } 
