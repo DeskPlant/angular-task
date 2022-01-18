@@ -1,7 +1,7 @@
 pipeline {
 
   environment {
-        registry = "patrikptr/test80"
+        registry = "patrikptr/angular-app"
         registryCredential = 'testpatrik'
         dockerImage = ''
 }
