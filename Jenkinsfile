@@ -1,29 +1,29 @@
 pipeline {
 
     agent any   
+    def app
 
     stages {
 
         stage('build'){
             steps {
                 echo "creating docker image"
-                sh 'docker build -t test .'
+                app = sh 'docker build -t test .'
                 
             }
         }
       stage('login'){
             steps {
                 echo "login to patrikptr"
-                sh 'docker login'
-                sh 'patrikptr'
-                sh 'dfbi7233!'
+              
+                docker.withRegistry('https://registry.hub.docker.com', 'testpatrik') {                      
+                app.push("latest")
             }
         }
         stage('push'){
           steps {    
             
-                sh 'docker tag test patrikptr/test:1'
-                sh 'docker push patrikptr/test:1'
+                
                 echo "pushing to docker hub..."
                 
             }
