@@ -13,7 +13,10 @@ pipeline {
         }
       stage('login'){
             steps {
-                echo "maybe ill need a login"       
+                echo "login to patrikptr"
+                sh 'docker login'
+                sh 'patrikptr'
+                sh 'dfbi7233!'
             }
         }
         stage('push'){
